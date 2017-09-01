@@ -3,7 +3,7 @@
 
 En esta práctica tiene como objetivo mostrar los conocimientos básicos aprendidos de ROS (Robot Operativi System). Para realizarló se utiliza un sistema **Ubuntu 16.04** LTS junto con la versión **Kinetic Kame** de ROS.
 
-### Compilasión
+### Compilacion
 
 En este repositorio se encuntra la carpeta *test* que es el workspace del proyecto, para compilar se debe se ejecutar *catkin_make* dentró de esta carpeta (puede estar en ubucación deseada del equipo con el que se compile) para que CMake genere las direcciones locales adecuadas para la ejecución del paquete.
 
