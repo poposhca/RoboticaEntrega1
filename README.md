@@ -18,6 +18,9 @@ La estructura del paquete que se encuntra en este repositorio es la siguiente:
 
 Después de compilar y agregar las variebles de ambiente se obtendrá un paquete de ROS llamado **test** con dos ejecutables:
 *   *Hello* Es el programa encargado de mover linealmente a la tortuga, recibe dos argumentos, la distancia *d* y la velocidad máxima que alcanza la toruga *vmax*
+
     rosrun test hello *distancia* *vmax*
+
 *   *subs*  Es el programa que se subscribe al tópico que posee la posición de la tortuga, este programa no recibe argumentos y se debe detener manuelmente.
+    
     rosrun test subs
