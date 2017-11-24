@@ -1,0 +1,8 @@
+prefix=/home/poposhca/Desktop/Entrega1/control/install
+
+Name: control
+Description: Description of control
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/poposhca/Desktop/Entrega1/control/install/lib 
+Requires: 

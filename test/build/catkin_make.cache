@@ -1,0 +1,2 @@
+test
+-DCATKIN_DEVEL_PREFIX=/home/poposhca/Desktop/Entrega1/test/devel -DCMAKE_INSTALL_PREFIX=/home/poposhca/Desktop/Entrega1/test/install -G Unix Makefiles
