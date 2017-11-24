@@ -1,5 +1,10 @@
-# Primera entrega Temas Selectos de Robotica
-## Generación de trayectorias en ROS
+# Proyecto Temas Selectos de Robotica
+
+## Segunda entrega
+
+Es el paquete que dice control.
+
+## Primera entrega: Generación de trayectorias en ROS
 
 En esta práctica tiene como objetivo mostrar los conocimientos básicos aprendidos de ROS (Robot Operativi System). Para realizarló se utiliza un sistema **Ubuntu 16.04** LTS junto con la versión **Kinetic Kame** de ROS.
 
