@@ -3,6 +3,9 @@
 
 control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o
  /home/poposhca/Desktop/Entrega1/control/src/control/pose_controller.cpp
+ /opt/ros/kinetic/include/geometry_msgs/Quaternion.h
+ /opt/ros/kinetic/include/geometry_msgs/Transform.h
+ /opt/ros/kinetic/include/geometry_msgs/TransformStamped.h
  /opt/ros/kinetic/include/geometry_msgs/Twist.h
  /opt/ros/kinetic/include/geometry_msgs/Vector3.h
  /opt/ros/kinetic/include/ros/advertise_options.h
@@ -60,6 +63,8 @@ control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o
  /opt/ros/kinetic/include/ros/wall_timer_options.h
  /opt/ros/kinetic/include/rosconsole/macros_generated.h
  /opt/ros/kinetic/include/std_msgs/Float32.h
+ /opt/ros/kinetic/include/std_msgs/Header.h
+ /opt/ros/kinetic/include/tf2_msgs/TFMessage.h
  /opt/ros/kinetic/include/turtlesim/Pose.h
  /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
  /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h
