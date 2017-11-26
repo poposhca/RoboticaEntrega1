@@ -58,6 +58,7 @@ control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o: /opt/ros/kinetic/i
 control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o: /opt/ros/kinetic/include/ros/wall_timer.h
 control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o: /opt/ros/kinetic/include/ros/wall_timer_options.h
 control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o: /opt/ros/kinetic/include/rosconsole/macros_generated.h
+control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o: /opt/ros/kinetic/include/std_msgs/Float32.h
 control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o: /opt/ros/kinetic/include/turtlesim/Pose.h
 control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcDecl.h
 control/CMakeFiles/pose_controller.dir/pose_controller.cpp.o: /opt/ros/kinetic/include/xmlrpcpp/XmlRpcValue.h

@@ -11,5 +11,5 @@ export CMAKE_PREFIX_PATH="/home/poposhca/Desktop/Entrega1/control/devel:$CMAKE_P
 export LD_LIBRARY_PATH="/home/poposhca/Desktop/Entrega1/control/devel/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/poposhca/Desktop/Entrega1/control/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/poposhca/Desktop/Entrega1/control/build"
-export ROSLISP_PACKAGE_DIRECTORIES="/home/poposhca/Desktop/Entrega1/control/devel/share/common-lisp"
+export ROSLISP_PACKAGE_DIRECTORIES="/home/poposhca/Desktop/Entrega1/control/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/poposhca/Desktop/Entrega1/control/src:$ROS_PACKAGE_PATH"
