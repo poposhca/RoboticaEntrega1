@@ -44,9 +44,11 @@ public:
         this->goalx = goalx;
         this->goaly = goaly;
         this->goalTheta = goalTheta;
-        kp = 3.6;
-        ka = 0.8;
-        kb = 1;
+        kp = 0.6;
+        //ka > kp
+        ka = 1.6;
+        //Kb < 0
+        kb = -0.55;
         v = 0;
         gamma = 0;
     }
@@ -62,14 +64,7 @@ public:
         alpha = atan(dy / dx) - theta;
 
         //Calcular beta
-        beta = -theta - alpha;
-    }
-
-    void setNextPolarParameters()
-    {
-        ro = kp * cos(alpha);
-        alpha = kp * sin(alpha) - ka * alpha - kb * beta;
-        beta = -kp * sin(ro);
+        beta =  - theta - alpha;
     }
 
     void setActualParameters()
@@ -104,7 +99,6 @@ public:
         this->y = msg.y;
         this->theta = msg.theta;
         toPolar();
-        setNextPolarParameters();
         setActualParameters();
     }
 
@@ -141,7 +135,6 @@ public:
         this->y = msg.transforms[0].transform.translation.y;
         this->theta = msg.transforms[0].transform.rotation.z;
         toPolar();
-        setNextPolarParameters();
         setActualParameters();
     }
 
@@ -165,6 +158,7 @@ void sendMessage(Listener &l)
 
         ROS_INFO_STREAM("Position: x = " << l.x << " y = " << l.y << " theta = " << l.theta);
         ROS_INFO_STREAM("Polar: p = " << l.ro << " alpha = " << l.alpha << " beta = " << l.beta);
+        ROS_INFO_STREAM("Params: V = " << l.v << " gamma = " << l.gamma);
 
         l.SendMessage();
 
@@ -179,10 +173,10 @@ int main(int argc, char **argv)
 
     ros::NodeHandle nh;
 
-    //TurtleListener l(9,9,0);
+    //TurtleListener l(2,2,0);
     //ros::Subscriber sub = nh.subscribe("turtle1/pose", 1000, &TurtleListener::UpdatePose, &l);
 
-    CarListener l(9,0,0);
+    CarListener l(10,10,0);
     ros::Subscriber sub = nh.subscribe("tf", 1000, &CarListener::UpdatePose, &l);
 
     ros::spinOnce();
