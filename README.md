@@ -4,6 +4,9 @@
 
 En esta práctica se tiene como objetivo mostrar el funcionamiento de un control de poses para un robót móvil.
 
+####Cambios desde el primer push:
+Se corrigieron el error de pasar el steering como radianes para fueran grados. Se agregó una función que se suscribe al tópico robot/next_pose para que dinámicamente el robot se diriga a esa pose, en este caso el ángulo theta se pasa en grados y el código lo cambia a radianes.
+
 ### Compilacion
 
 En este repositorio se encuntra la carpeta *control* que es el workspace del proyecto del contról cinemático, para compilar se debe se ejecutar *catkin_make* dentró de esta carpeta (puede estar en ubucación deseada del equipo con el que se compile). Adicionalmente se debe contar con el modelo del carro autonomo y Gazebo instalados en la máquina. En este vínculo https://github.com/EagleKnights/SDI-11911/wiki se encuntra el módelo requerido y las instrucciones para instalar Gazebo.

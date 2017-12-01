@@ -6,9 +6,11 @@
 #include <geometry_msgs/Transform.h>
 #include <geometry_msgs/Vector3.h>
 #include <geometry_msgs/Quaternion.h>
+#include <geometry_msgs/Pose2D.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <angles/angles.h>
 
 class Listener
 {
@@ -64,7 +66,7 @@ public:
         alpha = atan(dy / dx) - theta;
 
         //Calcular beta
-        beta =  - theta - alpha;
+        beta =  - theta - alpha + angles::from_degrees(goalTheta);
     }
 
     void setActualParameters()
@@ -98,8 +100,6 @@ public:
         this->x = msg.x;
         this->y = msg.y;
         this->theta = msg.theta;
-        toPolar();
-        setActualParameters();
     }
 
     void SendMessage()
@@ -129,13 +129,18 @@ public:
         pubSteer = nh.advertise<std_msgs::Float32>("AutoNOMOS_mini/manual_control/steering", 1000);
     }
 
+    void UpdateNextPose(const geometry_msgs::Pose2D &msg)
+    {
+        this->goalx = msg.x;
+        this->goaly = msg.y;
+        this->goalTheta = msg.theta;
+    }
+
     void UpdatePose(const tf2_msgs::TFMessage &msg)
     {
         this->x = msg.transforms[0].transform.translation.x;
         this->y = msg.transforms[0].transform.translation.y;
         this->theta = msg.transforms[0].transform.rotation.z;
-        toPolar();
-        setActualParameters();
     }
 
     void SendMessage()
@@ -143,7 +148,7 @@ public:
         std_msgs::Float32 msgv;
         msgv.data = v;
         std_msgs::Float32 msgs;
-        msgs.data = gamma;
+        msgs.data = angles::to_degrees(gamma);
         pubVel.publish(msgv);
         pubSteer.publish(msgs);
     }
@@ -155,6 +160,9 @@ void sendMessage(Listener &l)
     while(ros::ok())
     {
         ros::spinOnce();
+
+        l.toPolar();
+        l.setActualParameters();
 
         ROS_INFO_STREAM("Position: x = " << l.x << " y = " << l.y << " theta = " << l.theta);
         ROS_INFO_STREAM("Polar: p = " << l.ro << " alpha = " << l.alpha << " beta = " << l.beta);
@@ -176,8 +184,9 @@ int main(int argc, char **argv)
     //TurtleListener l(2,2,0);
     //ros::Subscriber sub = nh.subscribe("turtle1/pose", 1000, &TurtleListener::UpdatePose, &l);
 
-    CarListener l(10,10,0);
-    ros::Subscriber sub = nh.subscribe("tf", 1000, &CarListener::UpdatePose, &l);
+    CarListener l(0,0,0);
+    ros::Subscriber sub1 = nh.subscribe("tf", 1000, &CarListener::UpdatePose, &l);
+    ros::Subscriber sub2 = nh.subscribe("robot/next_pose", 1000, &CarListener::UpdateNextPose, &l);
 
     ros::spinOnce();
 
